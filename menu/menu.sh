@@ -154,7 +154,7 @@ ISPVPS=$( curl -s ipinfo.io/org )
 UDPX="https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2"
 clear
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
-echo -e "${BICyan} │  ${BICyan}Use Core        :  ${BIGreen}Pertamax Multiport ${NC}" 
+echo -e "${BICyan} │  ${BICyan}Use Core        :  ${BIGreen}XRAY Multiport ${NC}" 
 echo -e " ${BICyan}│  ${BICyan}OS VPS          :  "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-` $NC
 echo -e " ${BICyan}│  ${BICyan}Current Domain  :  ${BIBlue}$(cat /etc/xray/domain)${NC}"
 echo -e " ${BICyan}│  ${BICyan}SLOWDNS Domain  :  ${BIBlue}$(cat /root/nsdomain)${NC}"
@@ -175,6 +175,13 @@ echo -e "     ${BICyan}[${BIGreen}7${BICyan}]${GREEN} SETTINGS ${NC}"
 echo -e "     ${BICyan}[${BIGreen}8${BICyan}]${GREEN} INFO SCRIPT ${NC}"  
 echo -e "     ${BICyan}[${BIGreen}9${BICyan}]${GREEN} INFO SERVER ${NC}"    
 echo -e "     ${BICyan}[${BIGreen}10${BICyan}]${GREEN} INSTAL UDP ${NC}" 
+echo -e "${BICyan} └─────────────────────────────────────────────────────┘${NC}"
+echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
+echo -e "     ${BICyan}[${BIGreen}11${BICyan}]${GREEN} SSH ${NC}" 
+echo -e "     ${BICyan}[${BIGreen}12${BICyan}]${GREEN} VMESS ${NC}"    
+echo -e "     ${BICyan}[${BIGreen}13${BICyan}]${GREEN} VLESS ${NC}"    
+echo -e "     ${BICyan}[${BIGreen}14${BICyan}]${GREEN} TROJAN ${NC}" 
+echo -e "     ${BICyan}[${BIGreen}15${BICyan}]${GREEN} SHADOWSOCKS ${NC}"  
 echo -e "     ${BICyan}[${BIGreen}x${BICyan}]${GREEN} EXIT ${NC}"  
 echo -e "${BICyan} └─────────────────────────────────────────────────────┘${NC}"
 DATE=$(date +'%d %B %Y')
