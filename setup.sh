@@ -197,6 +197,13 @@ clear && clear && clear
 clear;clear;clear
 
 # // Starting Setup Domain
+echo -e ""
+echo -e "$green██╗░░██╗██╗░░░░░███╗░░░███╗██████╗░██╗░░██╗$NC"
+echo -e "$green██║░██╔╝██║░░░░░████╗░████║██╔══██╗██║░██╔╝$NC"
+echo -e "$green█████═╝░██║░░░░░██╔████╔██║██████╔╝█████═╝░$NC"
+echo -e "$green██╔═██╗░██║░░░░░██║╚██╔╝██║██╔═══╝░██╔═██╗░$NC"
+echo -e "$green██║░╚██╗███████╗██║░╚═╝░██║██║░░░░░██║░╚██╗$NC"
+echo -e "$green╚═╝░░╚═╝╚══════╝╚═╝░░░░░╚═╝╚═╝░░░░░╚═╝░░╚═╝$NC"
 echo -e "${YELLOW}-----------------------------------------------------${NC}"
 echo -e "Anda Ingin Menggunakan Domain Pribadi ?"
 echo -e "Atau Ingin Menggunakan Domain Otomatis ?"
