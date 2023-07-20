@@ -370,34 +370,34 @@ else
     exit 1
 fi
 
-#install arzsource
-echo -e "┌─────────────────────────────────────────┐"
-echo -e " \E[41;1;39m           >>> Install Source <<<          \E[0m$NC"
-echo -e "└─────────────────────────────────────────┘"
+#install SSHWS
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "\E[44;1;39m          ⇱ SCRIPT BY @Andyyuda ⇲          \E[0m"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 sleep 1 
 wget -q https://raw.githubusercontent.com/Andyyuda/v5/main/tempek/arzsource.sh && chmod +x arzsource.sh && ./arzsource.sh
 #install ssh-vpn
-echo -e "┌─────────────────────────────────────────┐"
-echo -e " \E[41;1;39m          >>> Install SSH / WS <<<        \E[0m$NC"
-echo -e "└─────────────────────────────────────────┘"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "\E[44;1;39m          ⇱ Install Ssh-vpn ⇲          \E[0m"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 sleep 1
 wget -q https://raw.githubusercontent.com/Andyyuda/v5/main/tempek/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #install ins-xray
-echo -e "┌─────────────────────────────────────────┐"
-echo -e " \E[41;1;39m            >>> Install Xray <<<         \E[0m$NC"
-echo -e "└─────────────────────────────────────────┘"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "\E[44;1;39m          ⇱ Install ins-xray ⇲          \E[0m"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 sleep 1 
 wget -q https://raw.githubusercontent.com/Andyyuda/v5/main/tempek/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
-#install ins-xray
-echo -e "┌─────────────────────────────────────────┐"
-echo -e " \E[41;1;39m            >>> Install BR <<<           \E[0m$NC"
-echo -e "└─────────────────────────────────────────┘"
+#install Backup Server
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "\E[44;1;39m          ⇱ Install ins-br ⇲          \E[0m"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 sleep 1 
 wget -q https://raw.githubusercontent.com/Andyyuda/v5/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 #install download data
-echo -e "┌─────────────────────────────────────────┐"
-echo -e " \E[41;1;39m            >>> Download Data <<<           \E[0m$NC"
-echo -e "└─────────────────────────────────────────┘"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "\E[44;1;39m          ⇱ Download Data ⇲          \E[0m"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 sleep 1 
 wget -q https://raw.githubusercontent.com/Andyyuda/v5/main/senmenu.sh && chmod +x senmenu.sh && ./senmenu.sh
 #cat > /etc/cron.d/re_otm <<-END
