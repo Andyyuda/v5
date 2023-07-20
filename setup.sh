@@ -383,12 +383,6 @@ echo -e " \E[41;1;39m            >>> Install BR <<<           \E[0m$NC"
 echo -e "└─────────────────────────────────────────┘"
 sleep 1 
 wget -q https://raw.githubusercontent.com/Andyyuda/v5/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
-#install ins-xray
-echo -e "┌─────────────────────────────────────────┐"
-echo -e " \E[41;1;39m            >>> Install Bot <<<           \E[0m$NC"
-echo -e "└─────────────────────────────────────────┘"
-sleep 1 
-wget -q https://raw.githubusercontent.com/Andyyuda/xolpanel/main/xolpanel.sh && chmod +x xolpanel.sh && ./xolpanel.sh
 #install download data
 echo -e "┌─────────────────────────────────────────┐"
 echo -e " \E[41;1;39m            >>> Download Data <<<           \E[0m$NC"
