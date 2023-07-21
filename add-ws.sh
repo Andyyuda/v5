@@ -193,6 +193,7 @@ clear
 echo -e "${BIBlue}═══════════XRAY/VMESS═══════════${NC}"
 echo -e "${BIBlue}════════════════════════════════${NC}"
 echo -e "Remarks       : ${user}"
+echo -e "User Quota    : ${Quota} GB"
 echo -e "Expired On    : $exp" 
 echo -e "Domain        : ${domain}" 
 echo -e "Port TLS      : 443" 
