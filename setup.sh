@@ -129,9 +129,12 @@ elif [ "$res" = "Permission Accepted..." ]; then
 green "Permission Accepted!"
 else
 red "Permission Denied!
-Please Buy AutoScript Premium
-WA: 082131861788
-Telegram: t.me/matamata335"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "\E[44;1;39m          ⇱ SCRIPT BY @Andyyuda ⇲          \E[0m"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "\E[44;1;39m        Please Buy AutoScript Premium       \E[0m"
+echo -e "\E[44;1;39m              WA: 082131861788              \E[0m"
+echo -e "\E[44;1;39m          Telegram: t.me/matamata335        \E[0m"
 rm setup.sh > /dev/null 2>&1
 sleep 10
 exit 0
