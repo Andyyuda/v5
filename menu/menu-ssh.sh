@@ -104,6 +104,12 @@ fi
 clear
 function trialssh(){
 clear
+# Getting
+
+sldomain=$(cat /root/nsdomain)
+cdndomain=$(cat /root/awscdndomain)
+slkey=$(cat /etc/slowdns/server.pub)
+clear
 domen=`cat /etc/xray/domain`
 portsshws=`cat ~/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}'`
 wsssl=`cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}'`
