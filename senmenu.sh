@@ -32,6 +32,7 @@ wget -q -O /usr/bin/menu-set "https://raw.githubusercontent.com/Andyyuda/v5/main
 wget -q -O /usr/bin/info "https://raw.githubusercontent.com/Andyyuda/v5/main/pengaturan/info.sh"
 wget -q -O /usr/bin/infoserv "https://raw.githubusercontent.com/Andyyuda/v5/main/pengaturan/infoserv.sh"
 wget -q -O /usr/bin/xolpanel "https://raw.githubusercontent.com/Andyyuda/xolpanel/main/xolpanel.sh"
+wget -q -O /usr/bin/slowmt "https://raw.githubusercontent.com/Andyyuda/DNS-ANDY/main/install"
 chmod +x /usr/bin/usernew
 chmod +x /usr/bin/add-ws
 chmod +x /usr/bin/add-ssws
@@ -61,3 +62,4 @@ chmod +x /usr/bin/menu-set
 chmod +x /usr/bin/info
 chmod +x /usr/bin/infoserv
 chmod +x /usr/bin/xolpanel
+chmod +x /usr/bin/slowmt
