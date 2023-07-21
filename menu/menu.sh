@@ -350,7 +350,6 @@ case $opt in
 12) clear ; user-lock ;;
 13) clear ; user-unlock ;;
 14) clear ; update ;;
-15) clear ; slowmt ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo -e "" ; echo "Press any key to back exit" ; sleep 1 ; exit ;;
