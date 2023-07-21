@@ -343,10 +343,10 @@ echo ""
 
 # // Reading Your Input
 read -p "Input Your Domain : " domain
-fi
 read -rp "Input ur ns-domain : " -e nsdomen
 echo "$nsdomen" > /etc/xray/nsdomain
 echo "$nsdomen" > /root/nsdomain
+
 if [[ $domain == "" ]]; then
     clear
     echo -e "${EROR} No Input Detected !"
