@@ -238,7 +238,7 @@ mkdir -p /usr/local/etc/xray
 # // String / Request Data
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c5)
 subsl=$(</dev/urandom tr -dc a-z0-9 | head -c5)
-DOMAIN=mantapxsl.my.id
+DOMAIN=klmpk.my.id
 SUB_DOMAIN=${sub}.klmpk.my.id
 NS_DOMAIN=slowdns-${subsl}.klmpk.my.id
 CF_ID=andyyuda41@gmail.com
