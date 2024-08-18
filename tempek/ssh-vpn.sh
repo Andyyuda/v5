@@ -291,6 +291,9 @@ systemctl restart ssh >/dev/null 2>&1
 
 # install dropbear
 sleep 1
+apt-get remove --purge dropbear
+apt-get install dropbear
+
 echo -e "[ ${green}INFO$NC ] Settings Dropbear"
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
