@@ -136,8 +136,8 @@ wget -q -O /usr/local/bin/ws-dropbear "https://raw.githubusercontent.com/arzvpn/
 # Installing Service
 cat > /etc/systemd/system/ws-dropbear.service << END
 [Unit]
-Description=Ssh Websocket By Arz
-Documentation=https://arzvpnstore.biz.id
+Description=Ssh Websocket By Andyyuda
+Documentation=https://andyvpnstore.biz.id
 After=network.target nss-lookup.target
 
 [Service]
@@ -167,8 +167,8 @@ chmod +x /usr/local/bin/ws-stunnel
 # Installing Service Ovpn Websocket
 cat > /etc/systemd/system/ws-stunnel.service << END
 [Unit]
-Description=Ovpn Websocket Wings Premium VPN
-Documentation=https://arzvpnstore.biz.id
+Description=Ovpn Websocket Andy Premium VPN
+Documentation=https://andyvpnstore.biz.id
 After=network.target nss-lookup.target
 [Service]
 Type=simple
@@ -176,7 +176,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/bin/python2 -O /usr/local/bin/ws-stunnel
+ExecStart=/usr/bin/python3 -O /usr/local/bin/ws-stunnel
 Restart=on-failure
 [Install]
 WantedBy=multi-user.target
