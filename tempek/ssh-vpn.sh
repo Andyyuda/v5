@@ -307,6 +307,8 @@ echo -ne
 else
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
+dd=$(ps aux | grep dropbear | awk '{print $2}')
+kill $dd
 fi
 
 # Install Stunnel5
