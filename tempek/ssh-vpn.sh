@@ -410,8 +410,6 @@ kill $dd > /dev/null 2>&1
 systemctl restart dropbear > /dev/null 2>&1
 
 echo -e "[INFO] Dropbear dan banner berhasil diinstal dan dikonfigurasi."
-
-fi
 # Install Stunnel5
 cd /root/
 wget -q "https://raw.githubusercontent.com/myvpn1/v5/main/tools/stunnel5.zip"
