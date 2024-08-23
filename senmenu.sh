@@ -23,6 +23,7 @@ wget -q -O /usr/bin/menu-trojan "https://raw.githubusercontent.com/Andyyuda/v5/m
 wget -q -O /usr/bin/menu-ssh "https://raw.githubusercontent.com/Andyyuda/v5/main/menu/menu-ssh.sh"
 wget -q -O /usr/bin/menu-backup "https://raw.githubusercontent.com/Andyyuda/v5/main/menu/menu-backup.sh"
 wget -q -O /usr/bin/menu "https://raw.githubusercontent.com/Andyyuda/v5/main/menu/menu.sh"
+wget -q -O /usr/bin/menu1 "https://raw.githubusercontent.com/Andyyuda/v5/main/menu/menu1.sh"
 wget -q -O /usr/bin/webmin "https://raw.githubusercontent.com/Andyyuda/v5/main/pengaturan/webmin.sh"
 wget -q -O /usr/bin/xp "https://raw.githubusercontent.com/Andyyuda/v5/main/xp.sh"
 wget -q -O /usr/bin/update "https://raw.githubusercontent.com/Andyyuda/v5/main/pengaturan/update.sh"
@@ -54,6 +55,7 @@ chmod +x /usr/bin/menu-trojan
 chmod +x /usr/bin/menu-ssh
 chmod +x /usr/bin/menu-backup
 chmod +x /usr/bin/menu
+chmod +x /usr/bin/menu1
 chmod +x /usr/bin/webmin
 chmod +x /usr/bin/xp
 chmod +x /usr/bin/update
