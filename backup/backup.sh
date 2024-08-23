@@ -35,7 +35,7 @@ cp /etc/shadow /root/backup/ &> /dev/null
 cp /etc/gshadow /root/backup/ &> /dev/null
 cp /etc/ppp/chap-secrets /root/backup/chap-secrets &> /dev/null
 cp /etc/ipsec.d/passwd /root/backup/passwd1 &> /dev/null
-cp -r /var/lib/scrz-prem/ /root/backup/scrz-prem &> /dev/null
+cp -r /var/lib/klmpk/ /root/backup/klmpk &> /dev/null
 cp -r /etc/xray /root/backup/xray &> /dev/null
 cp -r /home/vps/public_html /root/backup/public_html &> /dev/null
 cd /root
@@ -56,7 +56,7 @@ rm -rf /root/backup
 rm -r /root/$IP-$date.zip
 clear
 echo -e "
-Detail Backup WINGS AutoScript
+Detail Backup klmpk AutoScript
 ==================================
 IP VPS        : $IP
 Link Backup   : $link
