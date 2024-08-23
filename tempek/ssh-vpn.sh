@@ -168,10 +168,10 @@ ver=$VERSION_ID
 country=ID
 state=Indonesia
 locality=Indonesia
-organization=Arz
-organizationalunit=ArzVpnStore
-commonname=ArzVpn
-email=admin@arzvip.site
+organization=klmpk
+organizationalunit=AndyVpnStore
+commonname=AndyVpn
+email=admin@andyvip.site
 
 # simple password minimal
 wget -q -O /etc/pam.d/common-password "https://raw.githubusercontent.com/Andyyuda/v5/main/tempek/password"
@@ -181,7 +181,7 @@ chmod +x /etc/pam.d/common-password
 cd
 
 # Getting websocket dropbear
-wget -q -O /usr/local/bin/ws-dropbear "https://raw.githubusercontent.com/arzvpn/Arzv/main/tools/ws-dropbear"
+wget -q -O /usr/local/bin/ws-dropbear "https://raw.githubusercontent.com/Andyyuda/v5/main/tempek/ws-dropbear"
 chmod +x /usr/local/bin/ws-dropbear
 
 # Installing Service
