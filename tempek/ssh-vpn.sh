@@ -342,9 +342,7 @@ systemctl restart ssh >/dev/null 2>&1
 
 # install dropbear
 sleep 1
-apt-get remove --purge dropbear
-apt-get install dropbear
-
+apt -y install dropbear
 echo -e "[ ${green}INFO$NC ] Settings Dropbear"
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
@@ -364,7 +362,7 @@ fi
 
 # Install Stunnel5
 cd /root/
-wget -q "https://raw.githubusercontent.com/Andyyuda/v5/main/tempek/stunnel5.zip"
+wget -q "https://raw.githubusercontent.com/myvpn1/v5/main/tools/stunnel5.zip"
 unzip stunnel5.zip
 cd /root/stunnel
 chmod +x configure
@@ -398,17 +396,17 @@ connect = 127.0.0.1:1194
 END
 
 # make a certificate
-openssl genrsa -out key.pem 2048  >/dev/null 2>&1
-openssl req -new -x509 -key key.pem -out cert.pem -days 1095 \
--subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"  >/dev/null 2>&1
-cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
+#openssl genrsa -out key.pem 2048  >/dev/null 2>&1
+#openssl req -new -x509 -key key.pem -out cert.pem -days 1095 \
+#-subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"  >/dev/null 2>&1
+#cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
 
 # konfigurasi stunnel
-echo "ENABLED=1" >> /etc/default/stunnel4
-sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
-systemctl daemon-reload >/dev/null 2>&1
-/etc/init.d/stunnel4 start >/dev/null 2>&1
-/etc/init.d/stunnel4 restart >/dev/null 2>&1
+#echo "ENABLED=1" >> /etc/default/stunnel4
+#sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
+#systemctl daemon-reload >/dev/null 2>&1
+#/etc/init.d/stunnel4 start >/dev/null 2>&1
+#/etc/init.d/stunnel4 restart >/dev/null 2>&1
 
 # Service Stunnel5 systemctl restart stunnel5
 rm -fr /etc/systemd/system/stunnel5.service
@@ -427,13 +425,13 @@ END
 
 # Service Stunnel5 /etc/init.d/stunnel5
 rm -fr /etc/init.d/stunnel5
-wget -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/Andyyuda/v5/main/tempek/stunnel5.init"
+wget -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/myvpn1/v5/main/tools/stunnel5.init"
 
 # Ubah Izin Akses
-chmod 600 /etc/stunnel5/stunnel5.pem
+#chmod 600 /etc/stunnel5/stunnel5.pem
 chmod +x /etc/init.d/stunnel5
 cp -r /usr/local/bin/stunnel /usr/local/bin/stunnel5
-mv /usr/local/bin/stunnel /usr/local/bin/stunnel5
+#mv /usr/local/bin/stunnel /usr/local/bin/stunnel5
 
 # Remove File
 rm -r -f /usr/local/share/doc/stunnel/
@@ -441,7 +439,7 @@ rm -r -f /usr/local/etc/stunnel/
 rm -f /usr/local/bin/stunnel
 rm -f /usr/local/bin/stunnel3
 rm -f /usr/local/bin/stunnel4
-rm -f /usr/local/bin/stunnel5
+#rm -f /usr/local/bin/stunnel5
 
 # Restart Stunnel5
 systemctl daemon-reload >/dev/null 2>&1
