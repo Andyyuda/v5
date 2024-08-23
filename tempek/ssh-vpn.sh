@@ -340,24 +340,75 @@ systemctl daemon-reload >/dev/null 2>&1
 systemctl start ssh >/dev/null 2>&1
 systemctl restart ssh >/dev/null 2>&1
 
-# install dropbear
+echo -e "[INFO] Menginstall Dropbear"
 sleep 1
-apt -y install dropbear
-echo -e "[ ${green}INFO$NC ] Settings Dropbear"
+
+# Deteksi OS
+OS=$(lsb_release -si)
+VERSION=$(lsb_release -sr)
+
+echo -e "[INFO] Detected OS: $OS $VERSION"
+
+# Update dan Install Dropbear
+if [[ "$OS" == "Debian" || "$OS" == "Ubuntu" ]]; then
+    apt update -y > /dev/null 2>&1
+    apt -y install dropbear > /dev/null 2>&1
+else
+    echo "[ERROR] OS tidak didukung oleh skrip ini."
+    exit 1
+fi
+
+# Konfigurasi Dropbear
+echo -e "[INFO] Mengatur Dropbear"
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 109"/g' /etc/default/dropbear
-systemctl daemon-reload >/dev/null 2>&1
-systemctl start dropbear >/dev/null 2>&1
-systemctl restart dropbear >/dev/null 2>&1
-cekker=$(cat /etc/shells | grep -w "/bin/false")
-if [[ "$cekker" = "/bin/false" ]];then
-echo -ne
-else
-echo "/bin/false" >> /etc/shells
-echo "/usr/sbin/nologin" >> /etc/shells
+sed -i 's|DROPBEAR_BANNER=""|DROPBEAR_BANNER="/etc/issue.net"|g' /etc/default/dropbear
+
+# Buat banner di /etc/issue.net
+cat > /etc/issue.net << 'END'
+happy conneting
+
+<p style="text-align: center;">
+    <span style="color: #41A85F; font-size: 26px;"><strong>KLMPK VPN</strong></span>
+    <span style="font-size: 26px;"><strong> </strong></span>
+    <span style="color: #F37934; font-size: 26px;"><strong>PREMIUM</strong></span>
+    <span style="font-size: 26px;">&nbsp;</span>
+</p>
+<p style="text-align: center;">
+    <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif;">
+        <span style="color: #E25041; background-color: #61BD6D;">Blitar Jatim</span>
+        <span style="background-color: #61BD6D;">&nbsp;</span>
+    </span>
+</p>
+<p style="text-align: center;">
+    <span style="color: #B8312F;">Telp/WhatsApp</span>:
+    <span style="color: #EFEFEF;">082131861788</span>
+</p>
+END
+
+# Reload systemd dan restart layanan Dropbear
+systemctl daemon-reload > /dev/null 2>&1
+systemctl start dropbear > /dev/null 2>&1
+systemctl restart dropbear > /dev/null 2>&1
+
+# Cek dan tambahkan /bin/false dan /usr/sbin/nologin ke /etc/shells jika belum ada
+if ! grep -q "/bin/false" /etc/shells; then
+    echo "/bin/false" >> /etc/shells
+fi
+
+if ! grep -q "/usr/sbin/nologin" /etc/shells; then
+    echo "/usr/sbin/nologin" >> /etc/shells
+fi
+
+# Matikan proses Dropbear yang lama
 dd=$(ps aux | grep dropbear | awk '{print $2}')
-kill $dd
+kill $dd > /dev/null 2>&1
+
+# Restart Dropbear setelah perubahan
+systemctl restart dropbear > /dev/null 2>&1
+
+echo -e "[INFO] Dropbear dan banner berhasil diinstal dan dikonfigurasi."
 fi
 
 # Install Stunnel5
