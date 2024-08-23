@@ -340,6 +340,8 @@ systemctl daemon-reload >/dev/null 2>&1
 systemctl start ssh >/dev/null 2>&1
 systemctl restart ssh >/dev/null 2>&1
 
+#!/bin/bash
+clear
 echo -e "[INFO] Menginstall Dropbear"
 sleep 1
 
@@ -362,11 +364,10 @@ fi
 echo -e "[INFO] Mengatur Dropbear"
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 109"/g' /etc/default/dropbear
-sed -i 's|DROPBEAR_BANNER=""|DROPBEAR_BANNER="/etc/issue.net"|g' /etc/default/dropbear
+sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 109 -p 69 -p 111 -b \/etc\/issue.net"/g' /etc/default/dropbear
 
 # Buat banner di /etc/issue.net
-cat > /etc/issue.net << 'END'
+cat > /etc/issue.net << END
 happy conneting
 
 <p style="text-align: center;">
@@ -409,8 +410,8 @@ kill $dd > /dev/null 2>&1
 systemctl restart dropbear > /dev/null 2>&1
 
 echo -e "[INFO] Dropbear dan banner berhasil diinstal dan dikonfigurasi."
-fi
 
+fi
 # Install Stunnel5
 cd /root/
 wget -q "https://raw.githubusercontent.com/myvpn1/v5/main/tools/stunnel5.zip"
@@ -591,16 +592,6 @@ sleep 1
 echo -e "[ ${green}INFO$NC ] Install successfully..."
 sleep 1
 echo -e "[ ${green}INFO$NC ] Config file at /usr/local/ddos/ddos.conf"
-
-# Banner /etc/issue.net
-rm -fr /etc/issue.net
-rm -fr /etc/issue.net.save
-sleep 1
-echo -e "[ ${green}INFO$NC ] Settings banner"
-wget -q -O /etc/issue.net "https://raw.githubusercontent.com/Andyyuda/v5/main/issue.net"
-chmod +x /etc/issue.net
-echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
-sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # Blokir Torrent
 echo -e "[ ${green}INFO$NC ] Set iptables"
