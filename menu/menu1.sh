@@ -11,17 +11,67 @@ NC='\e[0m'  # No Color
 BICyan='\033[1;96m'
 BOLD='\e[1m'
 
-# Function to check service status
+# Function to check if a service is running
 check_service_status() {
     service_name=$1
-    service_status=$(service $service_name status | grep active | cut -d ' ' -f5)
-    
-    if [ "$service_status" = "active" ]; then
-        echo -e "${green}ON${NC}"
+    service_status=$(systemctl is-active $service_name)
+
+    if [[ $service_status == "active" ]]; then
+        echo "running"
     else
-        echo -e "${red}OFF${NC}"
+        echo "not running"
     fi
 }
+
+# Get the status of each service
+ssh_service=$(check_service_status "ssh")
+stunnel_service=$(check_service_status "stunnel5")
+ws_stunnel_service=$(check_service_status "ws-stunnel")
+nginx_service=$(check_service_status "nginx")
+dropbear_service=$(check_service_status "dropbear")
+xray_service=$(check_service_status "xray")
+
+# STATUS SERVICE SSH
+if [[ $ssh_service == "running" ]]; then
+    status_ssh="${green}Running${NC} ( No Error )"
+else
+    status_ssh="${red}Not Running${NC} ( Error )"
+fi
+
+# STATUS SERVICE STUNNEL5
+if [[ $stunnel_service == "running" ]]; then
+    status_stunnel="${green}Running${NC} ( No Error )"
+else
+    status_stunnel="${red}Not Running${NC} ( Error )"
+fi
+
+# STATUS SERVICE WS-STUNNEL
+if [[ $ws_stunnel_service == "running" ]]; then
+    status_ws_stunnel="${green}Running${NC} ( No Error )"
+else
+    status_ws_stunnel="${red}Not Running${NC} ( Error )"
+fi
+
+# STATUS SERVICE NGINX
+if [[ $nginx_service == "running" ]]; then
+    status_nginx="${green}Running${NC} ( No Error )"
+else
+    status_nginx="${red}Not Running${NC} ( Error )"
+fi
+
+# STATUS SERVICE DROPBEAR
+if [[ $dropbear_service == "running" ]]; then
+    status_dropbear="${green}Running${NC} ( No Error )"
+else
+    status_dropbear="${red}Not Running${NC} ( Error )"
+fi
+
+# STATUS SERVICE XRAY
+if [[ $xray_service == "running" ]]; then
+    status_xray="${green}Running${NC} ( No Error )"
+else
+    status_xray="${red}Not Running${NC} ( Error )"
+fi
 
 # Getting data
 tram=$(free -h | awk 'NR==2 {print $2}')
@@ -32,14 +82,6 @@ cpu_usage+=" %"
 MYIP=$(curl -sS ipv4.icanhazip.com)
 Name=$(curl -sS https://raw.githubusercontent.com/Andyyuda/v5/main/izin | grep $MYIP | awk '{print $2}')
 Exp=$(curl -sS https://raw.githubusercontent.com/Andyyuda/v5/main/izin | grep $MYIP | awk '{print $3}')
-
-# Service statuses
-ssh_status=$(check_service_status "ssh")
-stunnel_status=$(check_service_status "stunnel5")
-ws_stunnel_status=$(check_service_status "ws-stunnel")
-nginx_status=$(check_service_status "nginx")
-dropbear_status=$(check_service_status "dropbear")
-xray_status=$(check_service_status "xray")
 
 # Display information
 clear
@@ -62,12 +104,12 @@ echo -e "${yellow}                     ⇱ ${BOLD}INFORMASI SERVICE${NC}${yellow
 echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 
 # Service Statuses
-echo -e "${yellow}□ Status SSH         : $ssh_status"
-echo -e "${yellow}□ Status Stunnel5    : $stunnel_status"
-echo -e "${yellow}□ Status WS-Stunnel  : $ws_stunnel_status"
-echo -e "${yellow}□ Status Nginx       : $nginx_status"
-echo -e "${yellow}□ Status Dropbear    : $dropbear_status"
-echo -e "${yellow}□ Status Xray        : $xray_status"
+echo -e "${yellow}□ Status SSH         : $status_ssh"
+echo -e "${yellow}□ Status Stunnel5    : $status_stunnel"
+echo -e "${yellow}□ Status WS-Stunnel  : $status_ws_stunnel"
+echo -e "${yellow}□ Status Nginx       : $status_nginx"
+echo -e "${yellow}□ Status Dropbear    : $status_dropbear"
+echo -e "${yellow}□ Status Xray        : $status_xray"
 
 echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 
