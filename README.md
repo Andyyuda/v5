@@ -47,7 +47,7 @@
         <h1>Selamat Datang di klmpk.web.id</h1>
         <p>Ini adalah situs sederhana yang dihosting di GitHub Pages.</p>
         <p>Gunakan halaman ini untuk memperkenalkan diri, membagikan informasi, atau mengarahkan pengunjung ke konten lain.</p>
-        <a href="https://github.com/Andyyuda/v5" class="btn">Kunjungi Repository di GitHub</a>
+        <a href="" class="btn">Kunjungi Repository di GitHub</a>
     </div>
 </body>
 </html>
